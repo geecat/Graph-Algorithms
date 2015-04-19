@@ -4,6 +4,11 @@ import java.util.Iterator;
 
 import com.geecat.graphinterface.Graph;
 
+/**
+ * Is the given graph acylic.
+ * @author Geecat
+ *
+ */
 public class Cycle {
 	private boolean[] marked;
 	private boolean hasCycle;
@@ -22,7 +27,7 @@ public class Cycle {
 	}
 
 	/**
-	 * If the vertex is marked and source and destination are not same that means there is a cysle.
+	 * If the vertex is marked and source and destination are not same that means there is a cycle.
 	 * 
 	 * @param G
 	 * @param v source vertex
