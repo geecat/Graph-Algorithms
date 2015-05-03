@@ -1,5 +1,7 @@
 package com.geecat.algorithms;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Stack;
@@ -49,7 +51,8 @@ public class BreadthFirstPaths {
 
 	public Iterable<Integer> pathTo(int v){
 		if(!hasPathTo(v))return null;
-		Stack<Integer> path = new Stack<Integer>();
+		//Stack<Integer> path = new Stack<Integer>();//this does not work.use deque instead.
+		Deque<Integer> path = new ArrayDeque<Integer>();
 		for(int x = v;x!=s;x=edgeTo[x]){
 			path.push(x);
 		}

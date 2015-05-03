@@ -1,5 +1,6 @@
 package com.geecat.pojo;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -36,6 +37,7 @@ public class DigraphMap implements Digraph{
 	
 	public void addEdge(int v, int e) {
 		adj.get(v).add(e);
+		//adj.get(v).add(0, e);
 		E++;
 	}
 	
@@ -68,15 +70,24 @@ public class DigraphMap implements Digraph{
 	public String toString() {
 		String s = V+" vertices, "+E+" edges\n";
 		for(int v=0;v<V;v++){
-			s += v+":-> ";
+			//s += v+":-> ";
+			s += v+": ";
 			Iterator<Integer> iter = this.adj(v);
 			while(iter.hasNext()){
-				s += iter.next()+ " -> ";
+				//s += iter.next()+ " -> ";
+				s += iter.next()+ " ";
 			}
-			int i = s.lastIndexOf(" ->");
-			s = s.substring(0,i);
+			//int i = s.lastIndexOf(" ->");
+			//s = s.substring(0,i);
 			s+="\n";
 		}
 		return s;
+	}
+	
+	public static void main(String[] args){
+		File file = new File("D:\\Work\\Workspaces\\wss2\\Graph-Algorithms\\Graph\\resource\\tinyDG.txt");
+		In in = new In(file);
+		DigraphMap digraph = new DigraphMap(in);
+		System.out.println(digraph.toString());
 	}
 }
